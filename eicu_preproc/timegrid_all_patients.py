@@ -31,7 +31,7 @@ def timegrid_all_patients(configs):
         job_name="impute_batch_{}".format(batch_idx)
         log_result_file=os.path.join(configs["log_base_dir"], "impute_batch_{}_RESULT.txt".format(batch_idx))
         mlhc_fs.delete_if_exist(log_result_file)
-        cmd_line=" ".join(["bsub", "-R", "rusage[mem={}]".format(mem_in_mbytes), "-n", "{}".format(n_cpu_cores), "-r", "-W", "{}:00".format(n_compute_hours), 
+        cmd_line=" ".join(["sbatch", "-R", "rusage[mem={}]".format(mem_in_mbytes), "-n", "{}".format(n_cpu_cores), "-r", "-W", "{}:00".format(n_compute_hours), 
                            "-J","{}".format(job_name), "-o", log_result_file, "python3", compute_script_path, "--run_mode CLUSTER", "--batch_id {}".format(batch_idx)])
         assert(" rm " not in cmd_line)
         job_index+=1
