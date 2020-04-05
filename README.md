@@ -2,7 +2,7 @@
 
 ## Requisites
 * Python 3 
-  * tables, psutil, parmap
+  * ipdb, tables, psutil, parmap, pandas
 
 ## Reference
 > Laura Manduchi, Matthias Hüser, Gunnar Rätsch, and Vincent Fortuin. DPSOM: Deep Probabilistic Clustering with Self-Organizing Maps. arXiv:1910.01590, Feb 2020.
@@ -52,32 +52,34 @@ from the raw eICU tables in CSV format, are listed below. The scripts expect
 the tables to be stored in `data/csv`. Intermediate data is stored in various
 sub-folders of `data`.
 
+(0) cd into eicu_preproc/
+
 (a) Conversion of raw CSV tables, which can be downloaded from
     https://eicu-crd.mit.edu/ after access is granted, to HDF versions of the
-    tables. (`eicu_preproc/hdf_convert.py`)
+    tables. (`hdf_convert.py`)
 
 (b) Filtering of ICU stays based on inclusion criteria.
-    (`eicu_preproc/save_all_pids.py`, `eicu_preproc/filter_patients.py`)
+    (`save_all_pids.py`, `filter_patients.py`)
 
 (c) Batching patient IDs for cluster processing
-    (`eicu_preproc/compute_patient_batches.py`)
+    (`compute_patient_batches.py`)
 
 (d) Selection of variables to include in the multi-variate time series, from
     the vital signs and lab measurement tables.
-    (`eicu_preproc/filter_variables.py`)
+    (`filter_variables.py`)
 
 (e) Conversion of the eICU data to a regular time grid format using
     forward filling imputation, which can be processed by VarTPSOM.
-    (`eicu_preproc/compute_quantiles.py`, `eicu_preproc/timegrid_all_patients.py`, `eicu_preproc/timegrid_one_batch.py`)
+    (`compute_quantiles.py`, `timegrid_all_patients.py`, `timegrid_one_batch.py`)
 
 (f) Labeling of the time points in the time series with the current/future
     worse physiology scores as well as dynamic mortality, which
     are used in the enrichment analyses and data visualizations.
-    (`eicu_preproc/label_all_patients.py`,`eicu_preproc/label_one_batch.py`)
+    (`label_all_patients.py`,`label_data_one_batch.py`)
  
 #### Saving the eICU data-set
 
-Insert the paths of the obtained preprocessed data into the script `eicu_preproc/save_model_inputs.py` and run it.
+Insert the paths of the obtained preprocessed data into the script `save_model_inputs.py` and run it.
 
 The script selects the last 72 time-step of each time-series and the following labels:
 
