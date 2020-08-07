@@ -2,7 +2,7 @@
 
 ## Requisites
 * Python 3 
-  * ipdb, tables, psutil, parmap, pandas
+  * ipdb, tables, psutil, parmap, pandas, h5py
 
 ## Reference
 > Laura Manduchi, Matthias Hüser, Gunnar Rätsch, and Vincent Fortuin. DPSOM: Deep Probabilistic Clustering with Self-Organizing Maps. arXiv:1910.01590, Feb 2020.
@@ -70,12 +70,12 @@ sub-folders of `data`.
 
 (e) Conversion of the eICU data to a regular time grid format using
     forward filling imputation, which can be processed by VarTPSOM.
-    (`compute_quantiles.py`, `timegrid_all_patients.py`, `timegrid_one_batch.py`)
+    (`compute_quantiles.py`, `timegrid_all_patients.py`)
 
 (f) Labeling of the time points in the time series with the current/future
     worse physiology scores as well as dynamic mortality, which
     are used in the enrichment analyses and data visualizations.
-    (`label_all_patients.py`,`label_data_one_batch.py`)
+    (`label_all_patients.py`)
  
 #### Saving the eICU data-set
 
