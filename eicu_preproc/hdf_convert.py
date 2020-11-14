@@ -14,7 +14,7 @@ import gc
 
 TABLES=["admissionDrug", "admissionDx", "allergy", "apacheApsVar", "apachePatientResult", "apachePredVar", "carePlanCareProvider", 
         "carePlanEOL", "carePlanGeneral" , "carePlanGoal", "carePlanInfectiousDisease", "customLab", "diagnosis", "hospital", 
-        "infusionDrug", "intakeOutput", "lab", "medication", "microLab", "note", "nurseAssessment", "nurseCare", "nurseCharting", 
+        "infusionDrug", "intakeOutput", "lab", "medication", "microLab", "note",
         "pastHistory", "patient", "physicalExam", "respiratoryCare", "respiratoryCharting", "treatment", "vitalAperiodic",
         "vitalPeriodic"]
 
