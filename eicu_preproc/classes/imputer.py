@@ -15,13 +15,11 @@ class Timegridder():
     def __init__(self, timegrid_step_mins=60.0):
 
         # List of selected vitalPeriodic variables
-        self.sel_vs_vars = ["temperature", "sao2", "heartrate", "respiration", "cvp", "etco2", "systemicsystolic",
-                            "systemicdiastolic", "systemicmean", "pasystolic", "padiastolic", "pamean",
-                            "st1", "st2", "st3"]
+        self.sel_vs_vars = ["temperature", "sao2", "heartrate", "respiration", "cvp", "systemicsystolic",
+                            "systemicdiastolic", "systemicmean", "st1", "st2", "st3"]
 
         # List of selected vitalAperiodic variables
-        self.sel_avs_vars = ["noninvasivesystolic", "noninvasivediastolic", "noninvasivemean", "paop", "cardiacoutput",
-                             "cardiacinput", "svr", "svri", "pvr", "pvri"]
+        self.sel_avs_vars = ["noninvasivesystolic", "noninvasivediastolic", "noninvasivemean"]
 
         # Time grid interval length in minutes
         self.timegrid_step_mins = timegrid_step_mins

@@ -99,7 +99,7 @@ def get_data(validation):
             np.array: Val/test labels."""
 
     #TO DOWNLOAD THE DATA FIRST
-    hf = h5py.File('../data/eICU_data.csv', 'r')
+    hf = h5py.File('../data/eICU_data.h5', 'r')
     #############################################
     data_total = np.array(hf.get('x'))
     endpoints_total = np.array(hf.get('y'))

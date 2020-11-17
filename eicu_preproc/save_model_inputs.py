@@ -81,9 +81,10 @@ scales_dynamic = pd.read_hdf("../data/time_grid/normalization_values.h5", "scale
 
 # Create numpy arrays with the last 72 time-steps of each time-series.
 data, labels = parmap_batch_generator(data_total, endpoints_total, mins_dynamic, scales_dynamic, max_n_step=72)
-l = np.array(labels)
-d = np.array(data)
-hf = h5py.File('../data/eICU_data.csv', 'w')
-hf.create_dataset('x', data=d)
-hf.create_dataset('y', data=l)
+# l = np.array(labels)
+# d = np.array(data)
+# import pdb;pdb.set_trace()
+hf = h5py.File('../data/eICU_data.h5', 'w')
+hf.create_dataset('x', data=np.array(data))
+hf.create_dataset('y', data=np.array(labels))
 hf.close()
